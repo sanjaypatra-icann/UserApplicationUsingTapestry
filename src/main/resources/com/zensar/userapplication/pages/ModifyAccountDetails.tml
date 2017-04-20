@@ -1,0 +1,163 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+    <head>
+        <title>Modify Account Details | User Application</title>
+        <style>
+            html {
+                background-color: cornsilk;
+            }
+            body {
+                background-color: unset;
+                color: #337ab7;
+                text-align: center;
+            }
+            #form {
+                background: rgba(255, 255, 255, 0.5);
+                width: 40%;
+                margin: 10% auto 5% auto;
+                padding: 30px 50px;
+                border: 2px solid orange;
+                border-radius: 10px;
+            }
+            table {
+                width: 100%;
+            }
+            input[type="submit"], input[type="button"], input[type="reset"] {
+                padding: 5px 10px;
+                color: #FFF;
+                background: blue;
+            }
+            h3, h5 {
+                color: blue;
+                font-size: 30px;
+                text-align: center;
+            }
+            h5 {
+                font-size: 16px;
+            }
+            label {
+                font-weight: unset;
+                color: #888;
+            }
+            sup {
+                font-size: 96%;
+            }
+            .errorMsg {
+                font-size: 16.1px;
+                color: #a94442;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .red {
+                color: #a94442;
+            }
+            .alert h4 {
+                display: none;
+            }
+            .alert {
+                width: 100%;
+                text-align: left;
+            }
+            #links {
+                position: absolute;
+                top: 10%;
+                right: 10%;
+            }
+            #welcome-msg {
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                font-size: 25px;
+                color: orange;
+            }
+        </style>
+        <script type="text/javascript">
+            function setContactNo() {
+                var contactNo = document.modifyAccountDetailsForm.contactNo.value;
+                if (contactNo == "0") {
+                    document.modifyAccountDetailsForm.contactNo.value = "";
+                }
+            }
+        </script>
+    </head>
+    <body onload="setContactNo();">
+        <span id="welcome-msg">Hi ${loggedInUser.firstname}</span>
+        <div id="links">
+            <span style="float: right; margin-left: 50px;"><a href="logout"><b>Logout</b></a></span>
+            <span style="float: right; margin-left: 50px;"><a href="changepassword"><b>Change Password</b></a></span>
+            <span style="float: right;"><a href="dashboard"><b>Dashboard</b></a></span>
+        </div>
+        <div id="form">
+            <h3>MODIFY ACCOUNT DETAILS</h3>
+            <h5>&nbsp;</h5>
+            <p class="successMsg" t:type="If" t:test="successMsg"><script type="text/javascript"> window.location.assign('dashboard?successMsg=Account details have been modified.'); </script></p>
+            <p class="errorMsg" t:type="If" t:test="errorMsg">Failed to modify account details! Please try again.</p>
+
+            <t:form t:id="modifyAccountDetailsForm" name="modifyAccountDetailsForm" onreset="window.location.assign('dashboard');" onload="setContactNo();">
+                <t:errors />
+                <table>
+                    <tr>
+                        <td><t:label for="username" /><span class="red"><sup> *</sup></span></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:textfield t:id="username" value="username" t:validate="required,regexp" readonly="true" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="firstname" /><span class="red"><sup> *</sup></span></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:textfield t:id="firstname" value="firstname" t:validate="required,regexp" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="middlename" /></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:textfield t:id="middlename" value="middlename" t:validate="regexp" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="lastname" /><span class="red"><sup> *</sup></span></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:textfield t:id="lastname" value="lastname" t:validate="required,regexp" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="contactNo" /><span class="red"><sup> *</sup></span></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td>
+                            <span style="float: left; margin-right: 10px; margin-top: 10px;">+</span>
+                            <t:select t:id="countryCode" t:model="countryCodeList" value="countryCode" t:validate="required,minlength=1,maxlength=3,regexp" style="width: auto; display: initial; padding: 5px; margin: 0; float: left; height: 34px;" />
+                            <t:textfield t:id="contactNo" value="contactNo" t:validate="required,minlength=8,maxlength=10,regexp" name="contactNo" size="10" maxlength="10" style="width: auto; display: initial; padding: 5px; margin: 0; margin-left: 10px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="email" /><span class="red"><sup> *</sup></span></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:textfield t:id="email" value="email" t:validate="required,email" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center;">
+                            <input type="submit" value="Modify Account Details" style="margin-right: 30px;" />
+                            <input type="reset" value="Cancel" />
+                        </td>
+                    </tr>
+                </table>
+            </t:form>
+        </div>
+    </body>
+</html>

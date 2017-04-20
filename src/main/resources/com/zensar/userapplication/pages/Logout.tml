@@ -1,0 +1,29 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+    <title>Logout | User Application</title>
+    <style>
+        html {
+            background-color: cornsilk;
+        }
+        body {
+            width: 40%;
+            margin: 19% auto;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px 50px;
+            border: 2px solid orange;
+            border-radius: 10px;
+            color: #888;
+        }
+        h5 {
+            color: blue;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h5>You have been logged out</h5><h5>Click <a href="login">here</a> to login again.</h5>
+</div>
+</body>
+</html>

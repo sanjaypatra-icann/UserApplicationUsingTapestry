@@ -1,0 +1,59 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+    <head>
+        <title>Dashboard | User Application</title>
+        <style>
+            html {
+                background-color: cornsilk;
+            }
+            body {
+                width: 40%;
+                margin: 19% auto;
+                background: rgba(255, 255, 255, 0.5);
+                padding: 30px 50px;
+                border: 2px solid orange;
+                border-radius: 10px;
+                color: #888;
+            }
+            h5 {
+                color: blue;
+                font-size: 30px;
+                text-align: center;
+            }
+            #links {
+                position: absolute;
+                top: 10%;
+                right: 10%;
+            }
+            .successMsg {
+                font-size: 16.1px;
+                text-align: center;
+                margin-bottom: 20px;
+                color: green;
+                position: absolute;
+                top: 30%;
+                left: 0;
+                width: 100%;
+            }
+            #welcome-msg {
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                font-size: 25px;
+                color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <!--<t:beandisplay object="loggedInUser" />-->
+            <p class="successMsg">${successMsg}</p>
+            <h5>Welcome..!</h5>
+            <span id="welcome-msg">Hi ${loggedInUser.firstname}</span>
+            <div id="links">
+                <span style="float: right; margin-left: 50px;"><a href="logout"><b>Logout</b></a></span>
+                <span style="float: right; margin-left: 50px;"><a href="modifyaccountdetails"><b>Modify Account Details</b></a></span>
+                <span style="float: right;"><a href="changepassword"><b>Change Password</b></a></span>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="tapestry-tapestry">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/stax2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/wstx-asl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/log4j.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

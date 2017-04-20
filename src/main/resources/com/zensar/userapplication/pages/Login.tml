@@ -1,0 +1,90 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+    <head>
+        <title>Login | User Application</title>
+        <style>
+            html {
+                background-color: cornsilk;
+            }
+            body {
+                background-color: unset;
+                color: #337ab7;
+                text-align: center;
+            }
+            div {
+                background: rgba(255, 255, 255, 0.5);
+                width: 35%;
+                margin: 8% auto 20px auto;
+                padding: 30px 50px;
+                border: 2px solid orange;
+                border-radius: 10px;
+            }
+            table {
+                width: 100%;
+            }
+            input[type="submit"], input[type="button"] {
+                padding: 5px 10px;
+                color: #FFF;
+                background: blue;
+            }
+            h3 {
+                color: blue;
+                font-size: 30px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            label {
+                font-weight: unset;
+                color: #888;
+            }
+            .errorMsg {
+                font-size: 16.1px;
+                color: #a94442;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .alert h4 {
+                display: none;
+            }
+            .alert {
+                width: 100%;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h3>LOGIN</h3><br /><br />
+            <p class="errorMsg" t:type="If" t:test="errorMsg">Username or Password is incorrect.</p>
+
+            <t:form t:id="loginForm">
+                <t:errors />
+                <table>
+                    <tr>
+                        <td><t:label for="username" /></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:textfield t:id="username" value="username" t:validate="required,regexp" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="password" /></td>
+                        <td>&nbsp; : &nbsp;</td>
+                        <td><t:passwordfield t:id="password" value="password" t:validate="required,minlength=8,maxlength=16,regexp" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center;"><input type="submit" value="Login" /></td>
+                    </tr>
+                </table>
+            </t:form>
+            <p style="text-align: right; margin-top: -40px;"><a href="forgotpassword">Forgot password?</a></p>
+        </div>
+        Don't have an account? <a href="register"><b>Sign Up</b></a>
+    </body>
+</html>
